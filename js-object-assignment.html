@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Inspirational Quote of the Day</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="container">
+<h2>Get Your Daily Quote</h2>
+<div id="quoteContainer">
+<p></p>
+<p id="quoteGenius"></p>
+</div><!--end quoteContainer-->
+<div id="buttonContainer">
+<input type = "button" id="quoteButton" onclick = "funquote()" value= "Click Me">
+</div><!--end buttonContainer-->
+</div>
+<script>
+    var quoteSource = [{
+    quote: "Go on; remember — patience and purity and courage and steady work. So long as you are pure, and true to your principles, you will never fail”",
+    name: "Swami Vivekananda"
+},
+{
+    quote: "Have you got the will to surmount mountain-high obstructions? If the whole world stands against you sword in hand, would you still dare to do what you think is right?",
+    name: "Radha Swami"
+},
+{
+    quote: "It does not matter how slowly you go as long as you do not stop.",
+    name: "Ram Gopal Verma"
+},
+{
+    quote: "Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.",
+    name: "Thomas A. Edison"
+},
+{
+    quote: "The will to win, the desire to succeed, the urge to reach your full potential...these are the keys that will unlock the door to personal excellence.",
+    name: "Confucius"
+}
+];
+const quoteButton = document.getElementById('quoteButton');
+function funquote() {
+    //getting a new random number to attach to a quote and setting a limit
+    var sourceLength = quoteSource.length;
+    var randomNumber = Math.floor(Math.random() * sourceLength);
+    //set a new quote
+    var newQuoteText = quoteSource[randomNumber].quote;
+    var newQuoteGenius = quoteSource[randomNumber].name;
+    var quoteContainer = document.getElementById('quoteContainer');
+    quoteContainer.innerHTML = `<p>${newQuoteText}</p><p
+id="quoteGenius">-${newQuoteGenius}</p> `;
+};
+</script>
+</body>
+</html>
